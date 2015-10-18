@@ -145,18 +145,18 @@ mean_steps_per_day_mod&lt;-mean(activity_total_steps_mod$total_steps)
 cat(&quot;The mean total imputed number of steps per day is&quot;,mean_steps_per_day_mod)</code></pre>
 <pre><code>## The mean total imputed number of steps per day is 10766.19</code></pre>
 <pre class="r"><code>difference&lt;-mean_steps_per_day_mod-mean_steps_per_day
-cat(&quot;The difference from the original value is&quot;,
-    difference,&quot;which is&quot;,format(100*difference/mean_steps_per_day,digits=3),&quot;%&quot;)</code></pre>
-<pre><code>## The difference from the original value is 1411.959 which is 15.1 %</code></pre>
+cat(sep=&quot;&quot;,&quot;The difference from the original value is &quot;,
+    difference,&quot; which is &quot;,format(100*difference/mean_steps_per_day,digits=3),&quot;%&quot;)</code></pre>
+<pre><code>## The difference from the original value is 1411.959 which is 15.1%</code></pre>
 <pre class="r"><code># Calculate the median
 median_steps_per_day_mod&lt;-median(activity_total_steps_mod$total_steps)
 cat(&quot;The median total imputed number of steps per day is&quot;,
     median_steps_per_day_mod)</code></pre>
 <pre><code>## The median total imputed number of steps per day is 10766.19</code></pre>
 <pre class="r"><code>difference&lt;-median_steps_per_day_mod-median_steps_per_day
-cat(&quot;The difference from the original value is&quot;,
-    difference,&quot;which is&quot;,format(100*difference/median_steps_per_day,digits=3),&quot;%&quot;)</code></pre>
-<pre><code>## The difference from the original value is 371.1887 which is 3.57 %</code></pre>
+cat(sep=&quot;&quot;,&quot;The difference from the original value is &quot;,
+    difference,&quot; which is &quot;,format(100*difference/median_steps_per_day,digits=3),&quot;%&quot;)</code></pre>
+<pre><code>## The difference from the original value is 371.1887 which is 3.57%</code></pre>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

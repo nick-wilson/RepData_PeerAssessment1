@@ -139,12 +139,12 @@ cat("The mean total imputed number of steps per day is",mean_steps_per_day_mod)
 
 ```r
 difference<-mean_steps_per_day_mod-mean_steps_per_day
-cat("The difference from the original value is",
-    difference,"which is",format(100*difference/mean_steps_per_day,digits=3),"%")
+cat(sep="","The difference from the original value is ",
+    difference," which is ",format(100*difference/mean_steps_per_day,digits=3),"%")
 ```
 
 ```
-## The difference from the original value is 1411.959 which is 15.1 %
+## The difference from the original value is 1411.959 which is 15.1%
 ```
 
 ```r
@@ -160,12 +160,12 @@ cat("The median total imputed number of steps per day is",
 
 ```r
 difference<-median_steps_per_day_mod-median_steps_per_day
-cat("The difference from the original value is",
-    difference,"which is",format(100*difference/median_steps_per_day,digits=3),"%")
+cat(sep="","The difference from the original value is ",
+    difference," which is ",format(100*difference/median_steps_per_day,digits=3),"%")
 ```
 
 ```
-## The difference from the original value is 371.1887 which is 3.57 %
+## The difference from the original value is 371.1887 which is 3.57%
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?

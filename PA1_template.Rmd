@@ -96,15 +96,15 @@ hist(activity_total_steps_mod$total_steps,breaks=10,
 mean_steps_per_day_mod<-mean(activity_total_steps_mod$total_steps)
 cat("The mean total imputed number of steps per day is",mean_steps_per_day_mod)
 difference<-mean_steps_per_day_mod-mean_steps_per_day
-cat("The difference from the original value is",
-    difference,"which is",format(100*difference/mean_steps_per_day,digits=3),"%")
+cat(sep="","The difference from the original value is ",
+    difference," which is ",format(100*difference/mean_steps_per_day,digits=3),"%")
 # Calculate the median
 median_steps_per_day_mod<-median(activity_total_steps_mod$total_steps)
 cat("The median total imputed number of steps per day is",
     median_steps_per_day_mod)
 difference<-median_steps_per_day_mod-median_steps_per_day
-cat("The difference from the original value is",
-    difference,"which is",format(100*difference/median_steps_per_day,digits=3),"%")
+cat(sep="","The difference from the original value is ",
+    difference," which is ",format(100*difference/median_steps_per_day,digits=3),"%")
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
