@@ -20,6 +20,7 @@ activity_data<-read.csv(csvfile)
 The following code was used to plot a histogram of the total
 steps per day and then calculate the mean and median of that data:
 
+
 ```r
 library(dplyr)
 # add up the total steps on each date
@@ -54,10 +55,34 @@ cat("The median total number of steps per day is",median_steps_per_day)
 
 ## What is the average daily activity pattern?
 
+The following code calculates the average number of steps in each
+interval, plots it and then identifies the interval with the
+maximum value:
 
+
+```r
+# group activity data by interval and calculate average
+activity_mean_interval<-activity_data%>%group_by(interval)%>%
+    summarize(mean_steps=mean(steps,na.rm=TRUE))
+# plot as a line graph
+plot(activity_mean_interval,type="l",ylab="Average steps",
+     main="Number of steps averaged over all dates for each interval")
+```
+
+![](PA1_template_files/figure-html/dailypattern-1.png) 
+
+```r
+# identify index with maximum value
+max_index<-order(activity_mean_interval$mean_steps,decreasing=TRUE)[1]
+# identify interval corresponding to that index and print
+max_interval<-as.numeric(activity_mean_interval[max_index,1])
+cat("The interval with the maximum average number of steps is",max_interval)
+```
+
+```
+## The interval with the maximum average number of steps is 835
+```
 
 ## Imputing missing values
-
-
 
 ## Are there differences in activity patterns between weekdays and weekends?
