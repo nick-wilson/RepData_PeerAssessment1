@@ -108,3 +108,29 @@ cat(sep="","The difference from the original value is ",
 ```
 
 ## Are there differences in activity patterns between weekdays and weekends?
+
+The following code seperates the data by weekday or weekend, calculates
+the average number of steps for each interval and type of day and
+plots it using tha lattice package:
+
+```{r weekend}
+# convert date field into POSIX date
+activity_data$date<-strptime(activity_data$date,format="%Y-%m-%d")
+# create temporary vector with days of the week
+dotw<-weekdays(activity_data$date)
+# create temporary vector which gives true/false if day is weekend
+weekend<-dotw=="Saturday"|dotw=="Sunday"
+# set default type of day in activity to be a weekday
+activity_data$type_of_day<-"weekday"
+# change the ones which are actually the weekend to the correct value
+activity_data[weekend,"type_of_day"]<-"weekend"
+# turn it into a factor
+activity_data$type_of_day<-factor(activity_data$type_of_day)
+# calculate the mean steps for each interval for at weekends and weekdays
+activity_mean_interval_bytype<-activity_data%>%select(-date)%>%
+    group_by(type_of_day,interval)%>%
+    summarize(mean_steps=mean(steps,na.rm=TRUE))
+library(lattice)
+# Plot mean number of steps against interval for both types of day
+xyplot(mean_steps ~ interval | type_of_day, data=activity_mean_interval_bytype,layout=c(1,2),type="l",ylab="Number of steps",xlab="Interval")
+```
